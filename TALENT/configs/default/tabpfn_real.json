@@ -1,0 +1,9 @@
+{
+    "tabpfn_real": {
+        "model": {},
+        "training": {},
+        "general": {
+            "sample_size": 10000
+        }
+    }
+}
