@@ -502,8 +502,8 @@ for file_idx, file in enumerate(files):
                 best_idx = np.nanargmax(f1_scores)
                 print(f"    [RS {rs}] Best Model: {all_model_names[best_idx]} (F1: {f1_scores[best_idx]:.4f}) | Used Alpha (if MH): {alpha:.2f}")
                 
-                for beta in np.arange(0.5, 5.5, 0.5):
-                    print(f"# alpha: {best_approaches_all[beta].count('alpha')}, # thr: {best_approaches_all[beta].count('threshold_mix')}, # mothernet: {best_approaches_all[beta].count('other_threshold')} for beta: {beta}")
+                # for beta in np.arange(0.5, 5.5, 0.5):
+                #     print(f"# alpha: {best_approaches_all[beta].count('alpha')}, # thr: {best_approaches_all[beta].count('threshold_mix')}, # mothernet: {best_approaches_all[beta].count('other_threshold')} for beta: {beta}")
                 
                 if torch.cuda.is_available():
                     torch.cuda.empty_cache()

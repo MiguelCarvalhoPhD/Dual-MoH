@@ -110,7 +110,7 @@ The project tests three primary strategies for dealing with class imbalance and 
 
 This section tests Dual-MoH ability to impose user-preferences regarding model behaviour:
 
-* **`Preference_imposition_script.py`**: Focuses on post-processing predictions to optimize for specific beta values in the F-beta metric. It benchmarks Dual-MoH convex mixing + log-odds shift preference encoding mechanism versus post-hoc thresholding of PFN-based models as well as XGBoost.
+* **`Preference_imposition_script.py`**: Focuses on post-processing predictions to optimize for specific precision recall trade-offs (F-beta metric). It benchmarks Dual-MoH convex mixing + log-odds shift preference encoding mechanism versus post-hoc thresholding of PFN-based models as well as XGBoost.
 
 ### 4. Runtime & Throughput Analysis
 

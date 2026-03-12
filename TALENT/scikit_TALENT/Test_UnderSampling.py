@@ -239,7 +239,6 @@ total_successful_runs = 0
 raw_results_storage = []
 valid_dataset_idx = 0
 all_runs = 0
-n_missing_datasets = 4
 alphas = []
 n_errors = 0
 
@@ -256,16 +255,9 @@ for file_idx, file in enumerate(files):
         continue
 
     if X_processed.shape[0] > 10000:
-        if n_missing_datasets < 4:
-            print(f"|-- Action: Large dataset ({X_processed.shape[0]} samples). Downsampling.")
-            rng = np.random.default_rng(42 + file_idx)
-            indices = rng.choice(X_processed.shape[0], size=10000, replace=False)
-            X_processed = X_processed[indices]
-            y_processed = y_processed[indices]
-            n_missing_datasets += 1 
-        else:
-            print(f"|-- Action: Large dataset but limit reached. Skipping.")
-            continue
+ 
+        print(f"|-- Action: Large dataset but limit reached. Skipping.")
+        continue
     
     u_cls, u_counts = np.unique(y_processed, return_counts=True)
     natural_ir = max(u_counts) / min(u_counts)
