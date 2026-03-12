@@ -97,6 +97,7 @@ The codebase is divided into several distinct stages, handling everything from i
 * **`Downloading_CC_18.py`**: Fetches the OpenML-CC18 benchmark suite using the `openml` library. It downloads the datasets, extracts categorical attributes alongside feature names, and saves them locally as `.npy` files.
 * **`Dataset_characteristics.py`**: Analyzes and filters the downloaded datasets. It applies a difficulty-aware binary decomposition to convert multiclass datasets into binary tasks and injects artificial imbalance ratios ranging from 3 to 50.
 * **`utils_preprocessing.py`**: Contains core utility functions for the data pipeline. This includes dropping all-NaN columns, applying KNN imputation for numerical features, and using most-frequent imputation for categorical features.
+* **`Synthetic_data.py`**: Generates a 2D synthetic dataset of concentric rings with customizable class imbalance, noise, and gap sizes. It trains various classifiers (such as MotherNet and custom Dual-MoH models), calculates performance metrics (Recall, Precision, F1-score), and plots their decision boundaries side-by-side for visual comparison.
 
 ### 2. Imbalance Mitigation Benchmarks
 
