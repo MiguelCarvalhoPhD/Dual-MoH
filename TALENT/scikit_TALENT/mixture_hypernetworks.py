@@ -29,11 +29,11 @@ class BalancedKMeansLSA_optimized(BaseEstimator, ClusterMixin):
 
     Key guarantee:
     -------------
-    If N <= lsa_batch_threshold, this matches BalancedKMeansLSA EXACTLY:
+    If N <= lsa_batch_threshold, this matches LSA EXACTLY:
     - capacities sum to N (base + remainder), and cost matrix is (N x N).
 
     For N > lsa_batch_threshold:
-    - Uses your fixed+overflow + batched LSA logic.
+    - Uses fixed+overflow + batched LSA logic.
     """
 
     def __init__(
@@ -147,7 +147,6 @@ class BalancedKMeansLSA_optimized(BaseEstimator, ClusterMixin):
 
         return labels_out
 
-    # ---------- main API ----------
 
     def fit(self, X, y=None):
         X = np.asarray(X)
@@ -207,7 +206,7 @@ class BalancedKMeansLSA_optimized(BaseEstimator, ClusterMixin):
             return self
 
         # ------------------------------------------------------------
-        # Large-N: your fixed+overflow + batched LSA path
+        # Large-N: fixed+overflow + batched LSA path
         # ------------------------------------------------------------
         cap_base = int(np.ceil(N / k))
 
@@ -254,7 +253,7 @@ class BalancedKMeansLSA_optimized(BaseEstimator, ClusterMixin):
             centers.append(X[mask].mean(axis=0) if np.any(mask) else centroids[j])
         self.cluster_centers_ = np.vstack(centers)
 
-        print("BalancedKMeansLSA: Cluster sizes:", np.bincount(self.labels_, minlength=k))
+        #print("BalancedKMeansLSA: Cluster sizes:", np.bincount(self.labels_, minlength=k))
         return self
 
     def fit_predict(self, X, y=None):
